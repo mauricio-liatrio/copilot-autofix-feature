@@ -1,5 +1,6 @@
 from flask import Flask, request, g
 import sqlite3
+import os
 
 app = Flask(__name__)
 DATABASE = 'sample.db'
@@ -45,6 +46,5 @@ def login():
         </form>
     '''
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=os.getenv('FLASK_DEBUG', 'False').lower() in ['true', '1', 't'])
