@@ -41,8 +41,8 @@ def login():
         username = request.form['username']
         password = request.form['password']
       
-        query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
-        print(f"Executing query: {query}")
+        query = f"SELECT * FROM users WHERE username = ? AND password = ?"
+        print(f"Executing query for user: {username}")
 
         db = get_db()
         cursor = db.cursor()
